@@ -29,7 +29,7 @@ app.listen(port, function(err) {
 	if (err) {
 		console.log(err);
 	} else {
-		// open(`http:/localhost:${port}`);
-		console.log('You can now reload your browser'.yellow);
+		open(`http:/localhost:${port}`);
+		// console.log('You can now reload your browser'.yellow);
 	}
 });
