@@ -48,7 +48,7 @@ class ManagePost extends React.Component {
 		}
 
 		if (this.state.post.body.length < 5) {
-			errors.body = 'Title must be at least 5 characters.';
+			errors.body = 'Body must be at least 5 characters.';
 			formIsValid = false;
 		}
 
