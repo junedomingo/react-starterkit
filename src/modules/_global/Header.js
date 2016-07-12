@@ -1,11 +1,11 @@
 import React, {PropTypes} from 'react';
 import {Link, IndexLink} from 'react-router';
 
-const Header = () => {
+const Header = ({redirectToIndex}) => {
 	return (
 		<div className="header">
 			<div className="header__logo">
-				<i className="ion-ios-bolt-outline"></i>
+				<i onClick={redirectToIndex} className="ion-ios-bolt-outline"></i>
 			</div>
 			<ul className="header__nav-list">
 				<li className="header__nav-item">
@@ -21,5 +21,11 @@ const Header = () => {
 		</div>
 	);
 };
+
+
+Header.propTypes = {
+	redirectToIndex: PropTypes.func.isRequired
+};
+
 
 export default Header;
