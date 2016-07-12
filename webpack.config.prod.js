@@ -1,5 +1,7 @@
 import webpack from 'webpack';
 import path from 'path';
+import poststylus from 'poststylus';
+import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const GLOBALS = {
@@ -13,9 +15,9 @@ export default {
 	entry: './src/index',
 	target: 'web',
 	output: {
-		path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
+		path: __dirname + '/dist',
 		publicPath: '/',
-		filename: 'bundle.js'
+		filename: 'assets/js/bundle.js'
 	},
 	devServer: {
 		contentBase: './dist'
@@ -23,16 +25,28 @@ export default {
 	plugins: [
 		new webpack.optimize.OccurenceOrderPlugin(),
 		new webpack.DefinePlugin(GLOBALS),
-		new ExtractTextPlugin('styles.css'),
+		new ExtractTextPlugin('assets/css/styles.css'),
 		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.UglifyJsPlugin()
 	],
+	resolve: {
+		modulesDirectories: ['node_modules', './src'],
+		extensions: ['', '.js', '.jsx', '.css', '.styl']
+	},
 	module: {
 		loaders: [
-			{test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel']},
-			{test: /(\.css)$/, loader: ExtractTextPlugin.extract("css?sourceMap")},
+			{test: /\.js$/, exclude: /node_modules/, loader: 'babel'},
+			{test: /(\.css)$/, loader: ExtractTextPlugin.extract('css?sourceMap')},
 			{test: /\.styl$/, loader: ExtractTextPlugin.extract('css-loader!stylus-loader')},
-			{test: /\.(otf|woff|woff2|ttf|png|jpe?g|svg|eot|ico)(\?[\s\S]+)?$/, loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'}
+			{test: /\.(png|jpe?g|ico)$/, loader: 'url-loader?limit=100000&name=assets/img/[name]-[hash:6].[ext]'},
+			{test: /\.(otf|woff|woff2|svg|ttf|eot)(\?[\s\S]+)?$/, loader: 'file-loader?name=assets/fonts/[name].[ext]'}
+		]
+	},
+	stylus: {
+		use: [
+			poststylus([
+				autoprefixer({ browsers: ['last 2 version', '> 1%', 'IE > 8'] })
+			])
 		]
 	}
 };
