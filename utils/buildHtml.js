@@ -12,7 +12,15 @@ fs.readFile('src/index.html', 'utf8', (err, markup) => {
 
 	const $ = cheerio.load(markup);
 	
-	$('head').prepend('<link rel="stylesheet" href="styles.css">');
+	$('head').prepend(`
+	<link rel="stylesheet" href="assets/css/styles.css">`);
+
+	$('script').each(function () {
+	    $(this).remove();
+	});
+
+	$('body').append(`
+	<script src="assets/js/bundle.js"></script>`);
 
 	fs.writeFile('dist/index.html', $.html(), 'utf8', function (err) {
 		if (err) {
