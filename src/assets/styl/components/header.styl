@@ -1,0 +1,35 @@
+.header
+	display flex
+	justify-content space-between
+	font-family 'MullerNarrow-Light'
+	margin-top 60px
+	
+	&__logo
+		margin-top -20px
+		color #525252
+		font-size 50px
+		color #26CD8A
+		
+	&__nav-list
+		display flex
+		list-style-type none
+		
+	&__nav-item
+		margin-right 25px
+		
+		&:last-child
+			margin-right 0px
+		
+	&__nav-link
+		color #7b7b7b
+		text-decoration none
+		border-bottom 2px solid transparent
+		transition all 0.3s ease
+		
+		&:hover
+			border-bottom 2px solid #26CD8A
+			text-decoration none
+	
+	.active-nav
+		border-bottom 2px solid #26CD8A
+		
