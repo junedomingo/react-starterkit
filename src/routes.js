@@ -12,7 +12,8 @@ export default (
 		<Route path="posts" component={Posts} />
 		<Route path="post" component={ManagePost} />
 		<Route path="post/:id" component={ManagePost} />
-
+		<Route path="pageNoFound" component={NotFound} />
+		<Redirect from="*" to="pageNoFound" />
 	</Route>
 );
 
