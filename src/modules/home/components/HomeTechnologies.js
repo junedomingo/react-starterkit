@@ -25,7 +25,7 @@ const HomeTechnologies = () => {
 					<div className="desc"> Lint JS. Reports syntax and style issues</div>
 				</li>
 
-				<li className="tech-item"> Npm scrirts
+				<li className="tech-item"> Npm scripts
 					<div className="desc"> Run project with just one command</div>
 				</li>
 			</ul>
