@@ -1,4 +1,5 @@
 import * as types from '../../constants/actionTypes';
+import * as api from '../../constants/api';
 import axios from 'axios';
 
 export function loadPostsSuccess(res) {
@@ -19,7 +20,7 @@ export function deletePostSuccess(postId) {
 
 export function loadPosts() {
 	return function(dispatch) {
-		return axios.get(`http://localhost:3006/posts`)
+		return axios.get(`${api.URL}/posts`)
 			.then(res => {
 				dispatch(loadPostsSuccess(res));
 			}).catch(error => {
@@ -30,7 +31,7 @@ export function loadPosts() {
 
 export function createPost(post) {
 	return function (dispatch) {
-		return axios.post(`http://localhost:3006/posts`, post)
+		return axios.post(`${api.URL}/posts`, post)
 			.then(res => {
 				dispatch(createPostSuccess(post));
 			}).catch(error => {
@@ -41,7 +42,7 @@ export function createPost(post) {
 
 export function updatePost(post) {
 	return function (dispatch) {
-		return axios.put(`http://localhost:3006/posts/${post.id}`, post)
+		return axios.put(`${api.URL}/posts/${post.id}`, post)
 			.then(res => {
 				dispatch(updatePostSuccess(post));
 			}).catch(error => {
@@ -52,7 +53,7 @@ export function updatePost(post) {
 
 export function deletePost(postId) {
 	return function (dispatch) {
-		return axios.delete(`http://localhost:3006/posts/${postId}`)
+		return axios.delete(`${api.URL}/posts/${postId}`)
 			.then(res => {
 				dispatch(deletePostSuccess(postId));
 			}).catch(error => {
