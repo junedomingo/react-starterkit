@@ -2,6 +2,14 @@ import webpack from 'webpack';
 import path from 'path';
 import poststylus from 'poststylus';
 import autoprefixer from 'autoprefixer';
+import dotenv from 'dotenv';
+dotenv.config();
+
+const GLOBALS = {
+	'process.env': {
+		'API_URL': JSON.stringify(process.env.API_URL)
+	}
+};
 
 export default {
 	debug: true,
@@ -23,7 +31,12 @@ export default {
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoErrorsPlugin()
+		new webpack.DefinePlugin(GLOBALS),
+		new webpack.NoErrorsPlugin(),
+		new webpack.ProvidePlugin({
+			$: "jquery",
+			jQuery: "jquery"
+		})
 	],
 	resolve: {
 		modulesDirectories: ['node_modules', './src'],
