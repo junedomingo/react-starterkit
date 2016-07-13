@@ -5,8 +5,10 @@ import path from 'path';
 import open from 'open';
 import compression from 'compression';
 import colors from 'colors';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const port = 3005;
+const port = process.env.PORT;
 const app = express();
 
 app.use(compression());

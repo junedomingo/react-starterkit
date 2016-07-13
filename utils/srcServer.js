@@ -9,10 +9,9 @@ import colors from 'colors';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const port = 3005;
+const port = process.env.PORT;
 const app = express();
 const compiler = webpack(config);
-
 
 app.use(require('webpack-dev-middleware')(compiler, {
 	noInfo: true,
