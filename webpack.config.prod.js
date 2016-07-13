@@ -3,9 +3,14 @@ import path from 'path';
 import poststylus from 'poststylus';
 import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const GLOBALS = {
-	'process.env.NODE_ENV': JSON.stringify('production')
+	'process.env': {
+		'NODE_ENV': JSON.stringify('production'),
+		'API_URL': JSON.stringify(process.env.API_URL)
+	}
 };
 
 export default {
@@ -27,7 +32,11 @@ export default {
 		new webpack.DefinePlugin(GLOBALS),
 		new ExtractTextPlugin('assets/css/styles.css'),
 		new webpack.optimize.DedupePlugin(),
-		new webpack.optimize.UglifyJsPlugin()
+		new webpack.optimize.UglifyJsPlugin(),
+		new webpack.ProvidePlugin({
+			$: "jquery",
+			jQuery: "jquery"
+		})
 	],
 	resolve: {
 		modulesDirectories: ['node_modules', './src'],
