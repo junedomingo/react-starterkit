@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NotFound = () => {
+const PageNotFound = () => {
 	return (
 		<div>
 			<div className="example">
@@ -13,4 +13,4 @@ const NotFound = () => {
 	);
 };
 
-export default NotFound;
+export default PageNotFound;
