@@ -3,14 +3,10 @@ import path from 'path';
 import poststylus from 'poststylus';
 import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import dotenv from 'dotenv';
-dotenv.config();
+import DotenvPlugin from 'webpack-dotenv-plugin';
 
 const GLOBALS = {
-	'process.env': {
-		'NODE_ENV': JSON.stringify('production'),
-		'API_URL': JSON.stringify(process.env.API_URL)
-	}
+	'process.env.NODE_ENV': JSON.stringify('production')
 };
 
 export default {
@@ -36,6 +32,10 @@ export default {
 		new webpack.ProvidePlugin({
 			$: "jquery",
 			jQuery: "jquery"
+		}),
+		new DotenvPlugin({
+			sample: './.env.sample',
+			path: './.env'
 		})
 	],
 	resolve: {
