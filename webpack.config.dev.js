@@ -2,19 +2,12 @@ import webpack from 'webpack';
 import path from 'path';
 import poststylus from 'poststylus';
 import autoprefixer from 'autoprefixer';
-import dotenv from 'dotenv';
-dotenv.config();
-
-const GLOBALS = {
-	'process.env': {
-		'API_URL': JSON.stringify(process.env.API_URL)
-	}
-};
+import DotenvPlugin from 'webpack-dotenv-plugin';
 
 export default {
 	debug: true,
 	devtool: 'cheap-module-eval-source-map',
-	noInfo: false,
+	noInfo: true,
 	entry: [
 		'eventsource-polyfill',
 		'webpack-hot-middleware/client?reload=true',
@@ -31,11 +24,14 @@ export default {
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
-		new webpack.DefinePlugin(GLOBALS),
 		new webpack.NoErrorsPlugin(),
 		new webpack.ProvidePlugin({
 			$: "jquery",
 			jQuery: "jquery"
+		}),
+		new DotenvPlugin({
+			sample: './.env.sample',
+			path: './.env'
 		})
 	],
 	resolve: {
