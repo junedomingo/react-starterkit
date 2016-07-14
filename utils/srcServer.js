@@ -28,7 +28,10 @@ app.listen(port, function(err) {
 	if (err) {
 		console.log(err);
 	} else {
-		open(`http:/localhost:${port}`);
-		// console.log('You can now reload your browser'.yellow);
+		if (process.env.OPEN_BROWSER_ON_START === "TRUE") {
+			open(`http:/localhost:${port}`);
+		} else {
+			console.log('You can now reload your browser'.yellow);
+		}
 	}
 });
