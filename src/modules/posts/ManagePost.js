@@ -90,14 +90,15 @@ class ManagePost extends React.Component {
 
 	render() {
 		return (
-			<DocumentTitle title={this.state.pageTitle}>
+			<div>
+				<DocumentTitle title={this.state.pageTitle}/>
 				<ManagePostForm
 					onChange={this.handleInputState}
 					onSave={this.savePost}
 					post={this.state.post}
 					errors={this.state.errors}
 					saving={this.state.saving}/>
-			</DocumentTitle>
+			</div>
 		);
 	}
 }

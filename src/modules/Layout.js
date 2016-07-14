@@ -17,12 +17,13 @@ class Layout extends React.Component {
 
 	render() {
 		return (
-			<DocumentTitle title="Welcome">
+			<div>
+				<DocumentTitle title="React Starterkit"/>
 				<div className="container">
 					<Header redirectToIndex={this.onClickLogo}/>
 					{this.props.children}
 				</div>
-			</DocumentTitle>
+			</div>
 		);
 	}
 }

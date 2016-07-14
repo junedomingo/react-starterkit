@@ -28,11 +28,12 @@ class Posts extends React.Component {
 	render() {
 		const {posts} = this.props;
 		return (
-			<DocumentTitle title="Example">
+			<div>
+				<DocumentTitle title="Example"/>
 				<PostsList
 					posts={posts}
 					onDelete={this.handleDelete}/>
-			</DocumentTitle>
+			</div>
 		);
 	}
 }
