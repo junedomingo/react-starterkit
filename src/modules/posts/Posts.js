@@ -7,6 +7,7 @@ import * as postsActions from './posts.actions';
 import PostsList from './components/PostsList';
 import {browserHistory}  from 'react-router';
 import toastr from 'toastr';
+import DocumentTitle from 'react-document-title';
 
 class Posts extends React.Component {
 	constructor(props, context) {
@@ -27,9 +28,11 @@ class Posts extends React.Component {
 	render() {
 		const {posts} = this.props;
 		return (
-			<PostsList
-				posts={posts}
-				onDelete={this.handleDelete}/>
+			<DocumentTitle title="Example">
+				<PostsList
+					posts={posts}
+					onDelete={this.handleDelete}/>
+			</DocumentTitle>
 		);
 	}
 }

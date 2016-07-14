@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import Header from './_global/Header';
 import {browserHistory} from 'react-router';
+import DocumentTitle from 'react-document-title';
 
 class Layout extends React.Component {
 	constructor(props, context) {
@@ -16,10 +17,12 @@ class Layout extends React.Component {
 
 	render() {
 		return (
-			<div className="container">
-				<Header redirectToIndex={this.onClickLogo}/>
-				{this.props.children}
-			</div>
+			<DocumentTitle title="Welcome">
+				<div className="container">
+					<Header redirectToIndex={this.onClickLogo}/>
+					{this.props.children}
+				</div>
+			</DocumentTitle>
 		);
 	}
 }

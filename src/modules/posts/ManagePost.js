@@ -5,12 +5,14 @@ import * as postsActions from './posts.actions';
 import ManagePostForm from './components/ManagePostForm';
 import toastr from 'toastr';
 import {browserHistory} from 'react-router';
+import DocumentTitle from 'react-document-title';
 
 class ManagePost extends React.Component {
 	constructor(props, context) {
 		super(props, context);
 
 		this.state = {
+			pageTitle: (this.props.params.id ? "Edit Post" : "Create Post"),
 			post: Object.assign({}, props.post),
 			errors: {},
 			saving: false
@@ -18,7 +20,6 @@ class ManagePost extends React.Component {
 
 		this.handleInputState = this.handleInputState.bind(this);
 		this.savePost = this.savePost.bind(this);
-		
 	}
 
 	componentDidMount() {
@@ -89,21 +90,22 @@ class ManagePost extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<DocumentTitle title={this.state.pageTitle}>
 				<ManagePostForm
 					onChange={this.handleInputState}
 					onSave={this.savePost}
 					post={this.state.post}
 					errors={this.state.errors}
 					saving={this.state.saving}/>
-			</div>
+			</DocumentTitle>
 		);
 	}
 }
 
 ManagePost.propTypes = {
 	post: PropTypes.object.isRequired,
-	actions: PropTypes.object.isRequired
+	actions: PropTypes.object.isRequired,
+	params: PropTypes.object
 };
 
 ManagePost.contextTypes = {
