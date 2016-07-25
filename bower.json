@@ -1,0 +1,22 @@
+{
+  "name": "react-starterkit",
+  "description": "Build project using ReactJS, Redux, Webpack and Babel",
+  "main": "",
+  "authors": [
+    "June Domingo <june@cynder.io>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/JuneDomingo/react-starterkit",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Ionicons": "ionicons#^2.0.1",
+    "bootstrap": "v4.0.0-alpha.2"
+  }
+}
