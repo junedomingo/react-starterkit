@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Build project using ReactJS, Redux, Webpack and Babel",
   "scripts": {
-    "prestart": "babel-node utils/startMessage.js",
+    "postinstall": "bower install",
+    "prestart": "babel-node utils/checkDotEnv.js",
     "start": "npm-run-all --parallel open:src lint:watch",
     "open:src": "babel-node utils/srcServer.js",
     "lint": "esw webpack.config.* src tools",
