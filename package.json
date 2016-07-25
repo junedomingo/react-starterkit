@@ -1,7 +1,7 @@
 {
   "name": "react-starter-kit",
   "version": "1.0.0",
-  "description": "Starter kit for React and Redux",
+  "description": "Build project using ReactJS, Redux, Webpack and Babel",
   "scripts": {
     "prestart": "babel-node utils/startMessage.js",
     "start": "npm-run-all --parallel open:src lint:watch",
@@ -15,7 +15,7 @@
     "build": "babel-node utils/build.js",
     "postbuild": "babel-node utils/distServer.js"
   },
-  "author": "June Domingo",
+  "author": "June Domingo <june@cynder.io>",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.12.0",
