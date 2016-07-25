@@ -28,6 +28,5 @@ Clone this repo
 $ git clone https://github.com/JuneDomingo/react-starterkit.git
 $ cd react-starterkit
 $ npm i
-// create .env file and set PORT and API_URL
 $ npm start -s
 ```
