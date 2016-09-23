@@ -40,7 +40,7 @@ export default {
 	},
 	module: {
 		loaders: [
-			{test: /\.js$/, exclude: /node_modules/, loader: 'babel'},
+			{test: /\.js$/, exclude: /(node_modules|bower_components)/, loader: 'babel'},
 			{test: /(\.css)$/, loader: 'style!css'},
 			{test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader'},
 			{test: /\.(png|jpe?g|ico)$/, loader: 'url-loader?limit=100000&name=[name]-[hash:6].[ext]'},
