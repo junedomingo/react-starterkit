@@ -1,15 +1,15 @@
 /*eslint-disable no-console */
+/*eslint-disable no-var */
 
-import express from 'express';
-import path from 'path';
-import open from 'open';
-import compression from 'compression';
-import colors from 'colors';
-import dotenv from 'dotenv';
-dotenv.config();
+var express = require('express');
+var path = require('path');
+var open = require('open');
+var compression = require('compression');
+var colors = require('colors');
+var dotenv = require('dotenv').config();
 
-const port = process.env.PORT;
-const app = express();
+var port = process.env.PORT;
+var app = express();
 
 app.use(compression());
 app.use(express.static('dist'));
@@ -22,7 +22,7 @@ app.listen(port, function(err) {
 	if (err) {
 		console.log(err);
 	} else {
-		open(`http://localhost:${port}`);
-		// console.log('You can now reload your browser'.yellow);
+		// open(`http://localhost:${port}`);
+		console.log('You can now reload your browser'.yellow);
 	}
 });
