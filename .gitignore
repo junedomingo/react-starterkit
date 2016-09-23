@@ -1,7 +1,7 @@
 bower_components
 dist
+dist2
 node_modules
-
 .env
 .idea
 npm-debug.log
