@@ -4,6 +4,8 @@ import poststylus from 'poststylus';
 import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import DotenvPlugin from 'webpack-dotenv-plugin';
+import chalk from 'chalk';
+import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 
 const GLOBALS = {
 	'process.env.NODE_ENV': JSON.stringify('production')
@@ -16,7 +18,7 @@ export default {
 	entry: './src/index',
 	target: 'web',
 	output: {
-		path: __dirname + '/dist',
+		path: __dirname + '/dist2',
 		publicPath: '/',
 		filename: 'assets/js/bundle.js'
 	},
@@ -29,6 +31,10 @@ export default {
 		new ExtractTextPlugin('assets/css/styles.css'),
 		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.UglifyJsPlugin(),
+		new ProgressBarPlugin({
+			format: `Status [:bar] ${chalk.green.bold(':percent')} :msg (:elapsed seconds)`,
+			clear: false
+		}),
 		new webpack.ProvidePlugin({
 			$: "jquery",
 			jQuery: "jquery"
@@ -44,7 +50,7 @@ export default {
 	},
 	module: {
 		loaders: [
-			{test: /\.js$/, exclude: /node_modules/, loader: 'babel'},
+			{test: /\.js$/, exclude: /(node_modules|bower_components)/, loader: 'babel'},
 			{test: /(\.css)$/, loader: ExtractTextPlugin.extract('css?sourceMap')},
 			{test: /\.styl$/, loader: ExtractTextPlugin.extract('css-loader!stylus-loader')},
 			{test: /\.(png|jpe?g|ico)$/, loader: 'url-loader?limit=100000&name=assets/img/[name]-[hash:6].[ext]'},
