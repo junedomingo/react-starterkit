@@ -12,7 +12,7 @@ const HomeTechnologies = () => {
 				<li className="tech-item"> Webpack
 					<div className="desc"> A bundler for javascript and friends</div>
 				</li>
-				
+
 				<li className="tech-item"> React-Router
 					<div className="desc"> A complete routing library for React</div>
 				</li>

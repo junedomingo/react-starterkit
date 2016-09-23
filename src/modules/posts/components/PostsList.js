@@ -7,7 +7,7 @@ const PostsList = ({posts, onDelete}) => {
 			<div className="create-new-btn">
 				<Link to="/post" className="btn btn-success pull-xs-right"> Create new</Link>
 			</div>
-			<h1 className="section-title"> Posts 
+			<h1 className="section-title"> Posts
 				{!posts.length && <span className="no-content">Empty</span>}
 			</h1>
 			<div className="example-posts">
@@ -21,7 +21,7 @@ const PostsList = ({posts, onDelete}) => {
 						</tr>
 					</thead>
 					<tbody>
-						{posts.map(post => 
+						{posts.map(post =>
 							<tr key={post.id}>
 								<th scope="row">{post.id}</th>
 								<td>{post.title}</td>

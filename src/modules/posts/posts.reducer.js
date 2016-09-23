@@ -2,7 +2,7 @@ import * as types from '../../constants/actionTypes';
 import initialState from '../../reducers/initialState';
 
 export default function (state = initialState.posts, action) {
-	
+
 	let index;
 
 	switch(action.type) {
@@ -32,4 +32,4 @@ export default function (state = initialState.posts, action) {
 		default:
 			return state;
 	}
-} 
+}

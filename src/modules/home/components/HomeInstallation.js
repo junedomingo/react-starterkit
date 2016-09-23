@@ -7,11 +7,10 @@ const HomeInstallation = () => {
 			<div className="install-title"> Clone starter-kit api repo</div>
 			<div className="install-command">
 				<ul className="install-command-list">
-					<li className="install-command-item">$ git clone https://github.com/JuneDomingo/react-starterkit-api.git</li> 
+					<li className="install-command-item">$ git clone https://github.com/JuneDomingo/react-starterkit-api.git</li>
 					<li className="install-command-item">$ cd react-starterkit-api</li>
 					<li className="install-command-item">$ npm install</li>
 					<li className="install-command-item">$ npm start</li>
-
 				</ul>
 			</div>
 

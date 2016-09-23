@@ -8,7 +8,6 @@ const PageNotFound = () => {
 				<img src={require('assets/img/noodlesnotfound.jpg')} className="img-fluid"/>
 				<p> Hinalungkat ko....wala talaga eh</p>
 			</div>
-			
 		</div>
 	);
 };

@@ -7,7 +7,7 @@ const ManagePostForm = ({post, onSave, onChange, saving, errors}) => {
 			<h1 className="section-title"> Form</h1>
 			<form>
 				<div className="form-group row">
-					<div className="col-sm-10">	
+					<div className="col-sm-10">
 						<TextInput
 							name="title"
 							label="Title"
@@ -18,7 +18,7 @@ const ManagePostForm = ({post, onSave, onChange, saving, errors}) => {
 				</div>
 
 				<div className="form-group row">
-					<div className="col-sm-10">	
+					<div className="col-sm-10">
 						<TextInput
 							name="body"
 							label="Body"
