@@ -1,5 +1,24 @@
-if (process.env.NODE_ENV === "production" || (location && location.hostname !== 'localhost')) {
-	module.exports = require('./configureStore.prod');
+/* eslint-disable global-require */
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from '../reducers/rootReducer';
+import thunk from 'redux-thunk';
+
+let middleware = [thunk];
+
+if (process.env.NODE_ENV !== 'production') {
+	const reduxImmutableStateInvariant = require('redux-immutable-state-invariant')();
+	const createLogger = require('redux-logger');
+
+	const logger = createLogger({ collapsed: true });
+	middleware = [...middleware, reduxImmutableStateInvariant, logger];
 } else {
-	module.exports = require('./configureStore.dev');
+	middleware = [...middleware];
+}
+
+export default function configureStore(initialState) {
+	return createStore(
+		rootReducer,
+		initialState,
+		applyMiddleware(...middleware)
+	);
 }
