@@ -1,4 +1,4 @@
-/*eslint-disable no-console*/
+/* eslint-disable no-console*/
 import colors from 'colors';
 
 console.log('Your app has been compiled in production mode and written to /dist.'.green);

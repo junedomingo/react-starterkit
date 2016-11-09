@@ -1,12 +1,12 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
-const TextInput = ({name, label, onChange, placeholder, value, error}) => {
+const TextInput = ({ name, label, onChange, placeholder, value, error }) => {
 	let formGroup = 'form-group';
 	let formControl = 'form-control';
 
 	if (error && error.length > 0) {
-		formGroup += " " + 'has-danger';
-		formControl += " " + 'form-control-danger';
+		formGroup += `  has-danger`;
+		formControl += ` form-control-danger `;
 	}
 
 	return (
@@ -19,7 +19,8 @@ const TextInput = ({name, label, onChange, placeholder, value, error}) => {
 					className={formControl}
 					placeholder={placeholder}
 					value={value}
-					onChange={onChange}/>
+					onChange={onChange}
+				/>
 				{error && <div className="alert alert-danger mt-10">{error}</div>}
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 import { createStore, applyMiddleware } from 'redux';
-import rootReducer from '../reducers/rootReducer';
 import thunk from 'redux-thunk';
+import rootReducer from '../reducers/rootReducer';
 
 let middleware = [thunk];
 

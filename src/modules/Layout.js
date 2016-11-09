@@ -1,7 +1,8 @@
-import React, {PropTypes} from 'react';
-import Header from './_global/Header';
-import {browserHistory} from 'react-router';
+/* eslint-disable class-methods-use-this */
+import React, { PropTypes } from 'react';
+import { browserHistory } from 'react-router';
 import DocumentTitle from 'react-document-title';
+import Header from './_global/Header';
 
 class Layout extends React.Component {
 	constructor(props, context) {
@@ -18,9 +19,9 @@ class Layout extends React.Component {
 	render() {
 		return (
 			<div>
-				<DocumentTitle title="React Starterkit"/>
+				<DocumentTitle title="React Starterkit" />
 				<div className="container">
-					<Header redirectToIndex={this.onClickLogo}/>
+					<Header redirectToIndex={this.onClickLogo} />
 					{this.props.children}
 				</div>
 			</div>

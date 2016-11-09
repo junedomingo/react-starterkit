@@ -2,10 +2,9 @@ import * as types from '../../constants/actionTypes';
 import initialState from '../../reducers/initialState';
 
 export default function (state = initialState.posts, action) {
-
 	let index;
 
-	switch(action.type) {
+	switch (action.type) {
 
 		case types.LOAD_POSTS_SUCCESS:
 			return action.posts;
@@ -23,7 +22,7 @@ export default function (state = initialState.posts, action) {
 			];
 
 		case types.DELETE_POST_SUCCESS:
-			index = state.findIndex(post => post.id == action.postId);
+			index = state.findIndex(post => post.id === action.postId);
 			return [
 				...state.slice(0, index),
 				...state.slice(index + 1)

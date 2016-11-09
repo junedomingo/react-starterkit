@@ -1,11 +1,12 @@
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import React, { PropTypes } from 'react';
+import DocumentTitle from 'react-document-title';
+import toastr from 'toastr';
+import { bindActionCreators } from 'redux';
+import { browserHistory } from 'react-router';
+import { connect } from 'react-redux';
+
 import * as postsActions from './posts.actions';
 import ManagePostForm from './components/ManagePostForm';
-import toastr from 'toastr';
-import {browserHistory} from 'react-router';
-import DocumentTitle from 'react-document-title';
 
 class ManagePost extends React.Component {
 	constructor(props, context) {
@@ -27,21 +28,21 @@ class ManagePost extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (this.props.post.id != nextProps.post.id) {
-			this.setState({post: Object.assign({}, nextProps.post)});
+		if (this.props.post.id !== nextProps.post.id) {
+			this.setState({ post: Object.assign({}, nextProps.post) });
 		}
 	}
 
 	handleInputState(event) {
 		const field = event.target.name;
-		let post = this.state.post;
+		let post = this.state.post; // eslint-disable-line
 		post[field] = event.target.value;
-		return this.setState({post: post});
+		return this.setState({ post });
 	}
 
 	postFormIsValid() {
 		let formIsValid = true;
-		let errors = {};
+		const errors = {};
 
 		if (this.state.post.title.length < 3) {
 			errors.title = 'Title must be at least 3 characters.';
@@ -53,7 +54,7 @@ class ManagePost extends React.Component {
 			formIsValid = false;
 		}
 
-		this.setState({errors: errors});
+		this.setState({ errors });
 		return formIsValid;
 	}
 
@@ -63,27 +64,27 @@ class ManagePost extends React.Component {
 			return;
 		}
 
-		this.setState({saving: true});
+		this.setState({ saving: true });
 
 		if (this.state.post.id) {
 			this.props.actions.updatePost(this.state.post)
 				.then(() => this.redirectToPostsPage())
 				.catch(error => {
 					toastr.error(error);
-					this.setState({saving: false});
+					this.setState({ saving: false });
 				});
 		} else {
 			this.props.actions.createPost(this.state.post)
 				.then(() => this.redirectToPostsPage())
 				.catch(error => {
 					toastr.error(error);
-					this.setState({saving: false});
+					this.setState({ saving: false });
 				});
 		}
 	}
 
 	redirectToPostsPage() {
-		this.setState({saving: false});
+		this.setState({ saving: false });
 		toastr.success('Post Saved');
 		browserHistory.push('/posts');
 	}
@@ -91,13 +92,14 @@ class ManagePost extends React.Component {
 	render() {
 		return (
 			<div>
-				<DocumentTitle title={this.state.pageTitle}/>
+				<DocumentTitle title={this.state.pageTitle} />
 				<ManagePostForm
 					onChange={this.handleInputState}
 					onSave={this.savePost}
 					post={this.state.post}
 					errors={this.state.errors}
-					saving={this.state.saving}/>
+					saving={this.state.saving}
+				/>
 			</div>
 		);
 	}
@@ -114,22 +116,20 @@ ManagePost.contextTypes = {
 };
 
 function getPostById(posts, id) {
-	const post = posts.filter(post => post.id == id);
+	const post = posts.filter(post => post.id == id); // eslint-disable-line
 	if (post) return post[0];
 	return null;
 }
 
 function mapStateToProps(state, ownProps) {
 	const postId = ownProps.params.id;
-	let post = {id: '', title: '', body: ''};
+	let post = { id: '', title: '', body: '' };
 
 	if (postId && state.posts.length > 0) {
 		post = getPostById(state.posts, postId);
 	}
 
-	return {
-		post: post
-	};
+	return { post };
 }
 
 function mapDispatchToProps(dispatch) {
