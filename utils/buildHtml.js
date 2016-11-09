@@ -1,5 +1,4 @@
-/*eslint-disable no-console */
-
+/* eslint-disable no-console */
 import fs from 'fs';
 import cheerio from 'cheerio';
 import colors from 'colors';
@@ -20,7 +19,7 @@ fs.readFile('src/index.html', 'utf8', (err, markup) => {
 
 	$('body').append(`<script src="assets/js/bundle.js"></script>`);
 
-	fs.writeFile('dist2/index.html', $.html(), 'utf8', function (err) {
+	fs.writeFile('dist2/index.html', $.html(), 'utf8', err => {
 		if (err) return console.log(err);
 		console.log('index.html written to /dist'.green);
 	});

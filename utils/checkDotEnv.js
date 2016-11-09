@@ -1,12 +1,11 @@
-/*eslint-disable no-console*/
-
+/* eslint-disable no-console*/
 import fs from 'fs';
 import colors from 'colors';
 
-fs.stat('.env', function(err, stat) {
-	if(err == null) {
+fs.stat('.env', (err, stat) => {
+	if (err == null) {
 		// .env is set
-	} else if (err.code == 'ENOENT') {
+	} else if (err.code === 'ENOENT') {
 		fs.createReadStream('.env.sample').pipe(fs.createWriteStream('.env'));
 		console.log('Generated .env file in root directory.'.yellow);
 	} else {

@@ -18,7 +18,7 @@ export default {
 	entry: './src/index',
 	target: 'web',
 	output: {
-		path: __dirname + '/dist2',
+		path: path.join(__dirname, '/dist2'),
 		publicPath: '/',
 		filename: 'assets/js/bundle.js'
 	},
@@ -50,11 +50,11 @@ export default {
 	},
 	module: {
 		loaders: [
-			{test: /\.js$/, exclude: /(node_modules|bower_components)/, loader: 'babel'},
-			{test: /(\.css)$/, loader: ExtractTextPlugin.extract('css?sourceMap')},
-			{test: /\.styl$/, loader: ExtractTextPlugin.extract('css-loader!stylus-loader')},
-			{test: /\.(png|jpe?g|ico)$/, loader: 'url-loader?limit=100000&name=assets/img/[name]-[hash:6].[ext]'},
-			{test: /\.(otf|woff|woff2|svg|ttf|eot)(\?[\s\S]+)?$/, loader: 'file-loader?name=assets/fonts/[name].[ext]'}
+			{ test: /\.js$/, exclude: /(node_modules|bower_components)/, loader: 'babel' },
+			{ test: /(\.css)$/, loader: ExtractTextPlugin.extract('css?sourceMap') },
+			{ test: /\.styl$/, loader: ExtractTextPlugin.extract('css-loader!stylus-loader') },
+			{ test: /\.(png|jpe?g|ico)$/, loader: 'url-loader?limit=100000&name=assets/img/[name]-[hash:6].[ext]' },
+			{ test: /\.(otf|woff|woff2|svg|ttf|eot)(\?[\s\S]+)?$/, loader: 'file-loader?name=assets/fonts/[name].[ext]' }
 		]
 	},
 	stylus: {

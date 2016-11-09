@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, IndexRoute, Redirect} from 'react-router';
+import { Route, IndexRoute, Redirect } from 'react-router';
 import Layout from './modules/Layout';
 import Home from './modules/home/Home';
 import Posts from './modules/posts/Posts';
@@ -16,4 +16,3 @@ export default (
 		<Redirect from="*" to="page-not-found" />
 	</Route>
 );
-

@@ -1,13 +1,12 @@
-/*eslint-disable no-console*/
+/* eslint-disable no-console */
+import React, { PropTypes } from 'react';
+import DocumentTitle from 'react-document-title';
+import toastr from 'toastr';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import * as postsActions from './posts.actions';
 import PostsList from './components/PostsList';
-import {browserHistory}  from 'react-router';
-import toastr from 'toastr';
-import DocumentTitle from 'react-document-title';
 
 class Posts extends React.Component {
 	constructor(props, context) {
@@ -26,13 +25,14 @@ class Posts extends React.Component {
 	}
 
 	render() {
-		const {posts} = this.props;
+		const { posts } = this.props;
 		return (
 			<div>
-				<DocumentTitle title="Example"/>
+				<DocumentTitle title="Example" />
 				<PostsList
 					posts={posts}
-					onDelete={this.handleDelete}/>
+					onDelete={this.handleDelete}
+				/>
 			</div>
 		);
 	}
