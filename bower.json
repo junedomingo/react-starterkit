@@ -17,6 +17,6 @@
   ],
   "dependencies": {
     "Ionicons": "ionicons#^2.0.1",
-    "bootstrap": "v4.0.0-alpha.2"
+    "bootstrap": "v4.0.0-alpha.5"
   }
 }
