@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "description": "Build project using ReactJS, Redux, Webpack and Babel",
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "bower install --allow-root",
     "check-dotenv": "babel-node utils/checkDotEnv.js",
     "start:message": "babel-node utils/startMessage.js",
     "prestart": "npm run check-dotenv",
