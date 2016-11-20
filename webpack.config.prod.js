@@ -18,7 +18,7 @@ export default {
 	entry: './src/index',
 	target: 'web',
 	output: {
-		path: path.join(__dirname, '/dist2'),
+		path: path.join(__dirname, '/temp-dist'),
 		publicPath: '/',
 		filename: 'assets/js/bundle.js'
 	},
