@@ -2,7 +2,7 @@
 import fs from 'fs';
 import childProcess from 'child_process';
 
-const dir = './dist2';
+const dir = './temp-dist';
 
 if (fs.existsSync(dir)) {
 	childProcess.exec(`rimraf ${dir}`, (error, stdout) => {

@@ -52,8 +52,8 @@ export default {
 			{ test: /\.js$/, exclude: /(node_modules|bower_components)/, loader: 'babel' },
 			{ test: /(\.css)$/, loader: 'style!css' },
 			{ test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader' },
-			{ test: /\.(png|jpe?g|ico)$/, loader: 'url-loader?limit=100000&name=[name]-[hash:6].[ext]' },
-			{ test: /\.(woff|woff2|svg|ttf|eot|otf)(\?[\s\S]+)?$/, loader: 'file-loader?limit=100000&name=[name].[ext]' }
+			{ test: /\.(png|jpe?g|ico)$/, loader: 'url-loader?limit=1000&name=[name].[ext]' },
+			{ test: /\.(woff|woff2|svg|ttf|eot|otf)(\?[\s\S]+)?$/, loader: 'file-loader?limit=1000&name=[name].[ext]' }
 		]
 	},
 	stylus: {
