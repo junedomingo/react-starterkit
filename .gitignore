@@ -1,6 +1,6 @@
 bower_components
 dist
-dist2
+temp-dist
 node_modules
 .env
 .idea
