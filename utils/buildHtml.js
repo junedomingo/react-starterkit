@@ -19,8 +19,8 @@ fs.readFile('src/index.html', 'utf8', (err, markup) => {
 
 	$('body').append(`<script src="/assets/js/bundle.js"></script>`);
 
-	fs.writeFile('dist2/index.html', $.html(), 'utf8', err => {
+	fs.writeFile('temp-dist/index.html', $.html(), 'utf8', err => {
 		if (err) return console.log(err);
-		console.log('index.html written to /dist'.green);
+		console.log('index.html written to /temp-dist'.green);
 	});
 });
