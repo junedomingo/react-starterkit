@@ -1,5 +1,5 @@
-import * as types from '../../constants/actionTypes';
-import initialState from '../../reducers/initialState';
+import * as types from '~const/actionTypes';
+import initialState from '~reducers/initialState';
 
 export default function (state = initialState.posts, action) {
 	let index;

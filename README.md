@@ -56,5 +56,19 @@ General Settings
 Dev Settings
 - `OPEN_BROWSER_ON_START` - Set to `FALSE` if you don't want your app to automatically open the default browser upon running `npm start`. Default is `TRUE`
 
+#### Path Aliases
+```sh
+alias: {
+	'~assets': 'src/assets',
+	'~bower': 'bower_components',
+	'~const': 'src/constants',
+	'~global': 'src/modules/_global',
+	'~modules': 'src/modules',
+	'~reducers': 'src/reducers',
+	'~utils': 'src/utils'
+}
+```
+Edit `webpack.config.dev.js` and `webpack.config.prod.js` to add or edit alias 
+
 ### Extras
 - [reactgen](https://www.npmjs.com/package/reactgen) - React Component Generator

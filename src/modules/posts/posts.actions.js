@@ -1,6 +1,6 @@
 import axios from 'axios';
-import * as types from '../../constants/actionTypes';
-import * as api from '../../constants/api';
+import * as types from '~const/actionTypes';
+import * as api from '~const/api';
 
 export function loadPostsSuccess(res) {
 	return { type: types.LOAD_POSTS_SUCCESS, posts: res.data };

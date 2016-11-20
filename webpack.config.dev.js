@@ -38,8 +38,13 @@ export default {
 		modulesDirectories: ['node_modules', './src'],
 		extensions: ['', '.js', '.jsx', '.css', '.styl'],
 		alias: {
+			'~assets': path.join(__dirname, 'src/assets'),
 			'~bower': path.join(__dirname, 'bower_components'),
-			'~assets': path.join(__dirname, 'src/assets')
+			'~const': path.join(__dirname, 'src/constants'),
+			'~global': path.join(__dirname, 'src/modules/_global'),
+			'~modules': path.join(__dirname, 'src/modules'),
+			'~reducers': path.join(__dirname, 'src/reducers'),
+			'~utils': path.join(__dirname, 'src/utils')
 		}
 	},
 	module: {
