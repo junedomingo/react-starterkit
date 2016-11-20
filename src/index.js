@@ -10,8 +10,8 @@ import routes from './routes';
 
 import 'toastr/build/toastr.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../bower_components/Ionicons/css/ionicons.min.css';
-import './assets/styl/main.styl';
+import '~bower/Ionicons/css/ionicons.min.css';
+import '~assets/styl/main.styl';
 
 const store = configureStore();
 
