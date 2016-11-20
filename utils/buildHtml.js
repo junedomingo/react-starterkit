@@ -3,7 +3,6 @@ import fs from 'fs';
 import cheerio from 'cheerio';
 import colors from 'colors';
 
-
 fs.readFile('src/index.html', 'utf8', (err, markup) => {
 	if (err) {
 		return console.log(err);
@@ -11,7 +10,14 @@ fs.readFile('src/index.html', 'utf8', (err, markup) => {
 
 	const $ = cheerio.load(markup);
 
-	$('head').prepend(`<link rel="stylesheet" href="/assets/css/styles.css">`);
+	$('link').each(function () {
+		$(this).remove();
+	});
+
+	$('head').prepend(`
+		<link rel="stylesheet" href="/assets/css/styles.css">
+		<link rel="shortcut icon" href="/assets/img/favicon.ico">
+	`);
 
 	$('script').each(function () {
 		$(this).remove();
