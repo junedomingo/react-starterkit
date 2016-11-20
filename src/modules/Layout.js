@@ -2,7 +2,7 @@
 import React, { PropTypes } from 'react';
 import { browserHistory } from 'react-router';
 import DocumentTitle from 'react-document-title';
-import Header from './_global/Header';
+import Header from '~global/Header';
 
 class Layout extends React.Component {
 	constructor(props, context) {

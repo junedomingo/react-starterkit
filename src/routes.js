@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, IndexRoute, Redirect } from 'react-router';
-import Layout from './modules/Layout';
-import Home from './modules/home/Home';
-import Posts from './modules/posts/Posts';
-import ManagePost from './modules/posts/ManagePost';
-import PageNotFound from './modules/_global/PageNotFound';
+import Layout from '~modules/Layout';
+import Home from '~modules/home/Home';
+import Posts from '~modules/posts/Posts';
+import ManagePost from '~modules/posts/ManagePost';
+import PageNotFound from '~modules/_global/PageNotFound';
 
 export default (
 	<Route path="/" component={Layout}>

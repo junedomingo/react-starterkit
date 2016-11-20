@@ -1,5 +1,5 @@
 import React from 'react';
-import TextInput from '../../_global/forms/TextInput';
+import TextInput from '~global/forms/TextInput';
 
 const ManagePostForm = ({ post, onSave, onChange, saving, errors }) => (
 	<div className="example">
