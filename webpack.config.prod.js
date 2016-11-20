@@ -46,7 +46,11 @@ export default {
 	],
 	resolve: {
 		modulesDirectories: ['node_modules', './src'],
-		extensions: ['', '.js', '.jsx', '.css', '.styl']
+		extensions: ['', '.js', '.jsx', '.css', '.styl'],
+		alias: {
+			'~bower': path.join(__dirname, 'bower_components'),
+			'~assets': path.join(__dirname, 'src/assets')
+		}
 	},
 	module: {
 		loaders: [
