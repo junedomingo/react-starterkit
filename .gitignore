@@ -4,4 +4,4 @@ temp-dist
 node_modules
 .env
 .idea
-npm-debug.log
+npm-debug.log.*
