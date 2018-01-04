@@ -1,9 +1,7 @@
 # React Starterkit
 > Build web apps using ReactJS, Redux, Webpack and Babel
 
-<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/rLaZTxWeQsGAsDnqWnPDEK7u/junedomingo/react-starterkit'>
-  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/rLaZTxWeQsGAsDnqWnPDEK7u/junedomingo/react-starterkit.svg' />
-</a>
+
 
 ### Tech
 - [Redux](http://redux.js.org/) - Predictable state container for JavaScript apps
